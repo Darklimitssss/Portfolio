@@ -1,0 +1,29 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #000000;
+}
+.container {
+    display: flex;
+    width: 400px;
+}
+.navbar {
+    display: inline-flex;
+    justify-content: space-around;
+    padding: 2px;
+    background-color: #2c2c2c;
+    color: #ffffff;
+}
+.menu {
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.footer-container {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;   
+    display: flex;
+    width: auto;
+    background-color: #000000;
+}
