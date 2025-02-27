@@ -61,12 +61,17 @@ a {
     font-weight: 500;
     font-style: normal;
   }
-.home {
+#home {
+    display: flexbox;
+    padding-left: 12.5%;
+    padding-right: 12.5%;
+}
+ .home {
     display: flexbox;
     flex-direction: column;
     max-width: 75%;
-    font-family: "IBM Plex Mono", serif;
-    color: #81d003;
+    padding-left: 12.5%;
+    padding-right: 12.5%;
     align-content: center;
     margin: 1em 0 0 0em;
     border: #830202 .15em solid;
@@ -89,20 +94,53 @@ a {
     font-weight: 300;
     margin: .25em .25em .25em .25em;
 }
+#who {
+    display: flexbox;
+    padding-left: 12.5%;
+    padding-right: 12.5%;
+}
 .who {
-    margin-top: 50px;
+    display: flexbox;
+    flex-direction: column;
+    max-width: 75%;
+    padding-left: 12.5%;
+    padding-right: 12.5%;
+    align-content: center;
+    margin: 1em 0 0 0em;
     border: #830202 .15em solid;
     border-radius: .25em;
     padding 1em:
+}
+#what {
+    display: flexbox;
+    padding-left: 12.5%;
+    padding-right: 12.5%;
 }
 .what {
-    margin-top: 50px;
+    display: flexbox;
+    flex-direction: column;
+    max-width: 75%;
+    padding-left: 12.5%;
+    padding-right: 12.5%;
+    align-content: center;
+    margin: 1em 0 0 0em;
     border: #830202 .15em solid;
     border-radius: .25em;
     padding 1em:
 }
+#portfolio {
+    display: flexbox;
+    padding-left: 12.5%;
+    padding-right: 12.5%;
+}
 .portfolio {
-    margin-top: 50px;
+    display: flexbox;
+    flex-direction: column;
+    max-width: 75%;
+    padding-left: 12.5%;
+    padding-right: 12.5%;
+    align-content: center;
+    margin: 1em 0 0 0em;
     border: #830202 .15em solid;
     border-radius: .25em;
     padding 1em:
@@ -123,9 +161,17 @@ a {
     font-weight: 300;
     margin: .25em .25em .25em .25em;
 }
+.thus {
+    font-family: "IBM Plex Mono", serif;
+    font-size: .6em;
+    color: #81d003;
+    font-weight: 300;
+    font-style: italic;
+    margin: .25em .25em .25em .25em;
+}
 .footer {
     font-family: "IBM Plex Mono", serif;
-    font-size: 10px;
+    font-size: .75em;
     color: #81d003;
     text-align: center;
     margin-top: 50px;
