@@ -132,6 +132,7 @@ a {
     display: flexbox;
     padding-left: 12.5%;
     padding-right: 12.5%;
+    padding-bottom: 5em;
 }
 .portfolio {
     display: flexbox;
@@ -170,9 +171,21 @@ a {
     margin: .25em .25em .25em .25em;
 }
 .footer {
+    display: flex;
+    flex-direction: column;
+    margin-top: auto
+    max-height: 10em;
+    width: 100%;
+    padding-top: 5em;
+    margin: .5em;
+}
+.footer-text {
     font-family: "IBM Plex Mono", serif;
-    font-size: .75em;
+    font-size: .6em;
     color: #81d003;
     text-align: center;
-    margin-top: 50px;
+    font-weight: 300;
+    padding-left: .5em;
+    margin: .25em .25em .25em .25em;
+    border-top: 0.15em solid #81d003;
 }
