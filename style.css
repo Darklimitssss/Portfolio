@@ -1,27 +1,37 @@
 nav {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: baseline;
+    width: 100%;
+    min-width: 50%;
+    margin: 0 auto;
+    max-height: 10em;
     border-bottom: 2px solid #830202;
-    position: relative;
-    overflow: hidden;
     background-color: #000000;
     padding: 0px;
     margin: 0px;
 }
 body {
+    max-width: 100%;
     background-color: #000000;
 }
 .logo {
+align-content: center;
 font-family: "IBM Plex Mono", serif;
-font-size: 10px;
-float: left;
+font-size: 3em;
 padding: 0px;
 text-shadow: #830202 5px 5px 10px;
 }
 .menu {
-    float: right;
-    padding-right: 30px;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-right: 2em;
+    font-size: 1em;
 }
 li {
     list-style-type: none;
+    text-align: center;
 }
 a {
     font-family: "IBM Plex Mono", serif;
@@ -34,12 +44,27 @@ a {
     font-weight: 500;
     font-style: normal;
   }
-  .home {
+.home {
     font-family: "IBM Plex Mono", serif;
-    font-size: 20px;
+    color: #81d003;
+    align-content: center;
+    margin: 0em 0 0 0em;
+}
+.home-logo {
+    font-family: "IBM Plex Mono", serif;
+    font-size: 1.81em;
     color: #81d003;
     text-align: center;
-    margin-top: 50px;
+    font-weight: 600;
+    margin: 1em 0 0 0em;
+}
+.home-p {
+    font-family: "IBM Plex Mono", serif;
+    font-size: .8em;
+    color: #81d003;
+    text-align: center;
+    font-weight: 300;
+    margin: .25em 0 0 0em;
 }
 .who {
     font-family: "IBM Plex Mono", serif;
