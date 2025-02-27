@@ -1,12 +1,24 @@
+html {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    height: 100%;
+    justify-content: space-evenly;
+    background-color: #000000;
+    margin: 0px;
+    padding: 0px;
+}
 nav {
     display: inline-flex;
     justify-content: space-between;
     align-items: baseline;
+    position: fixed;
+    top: 0;  
     width: 100%;
     min-width: 50%;
     margin: 0 auto;
-    max-height: 10em;
-    border-bottom: .15em solid #830202;
+    height: 5rem;
+    border-bottom: .15rem solid #830202;
     background-color: #000000;
     padding: 0px;
     margin: 0px;
@@ -14,8 +26,11 @@ nav {
 body {
     display: flex;
     flex-direction: column;
-    max-width: 100%;
+    min-height: 50%;
+    height: calc(100% - 10rem) ;
+    justify-content: space-evenly;
     background-color: #000000;
+    margin: 0px;
 }
 
 .animation {
@@ -38,7 +53,7 @@ body {
 .logo {
 align-content: center;
 font-family: "IBM Plex Mono", serif;
-font-size: 3em;
+font-size: 3rem;
 padding: 0px;
 overflow: hidden;
 background: linear-gradient(90deg, #000, #81d003, #000);
@@ -61,8 +76,8 @@ animation: animate 3s linear infinite;
     display: inline-flex;
     justify-content: space-between;
     align-items: flex-end;
-    padding-right: 2em;
-    font-size: 1em;
+    padding-right: 2rem;
+    font-size: 1rem;
 }
 li {
     list-style-type: none;
@@ -72,7 +87,7 @@ a {
     font-family: "IBM Plex Mono", serif;
     text-decoration: none;
     color: #81d003;
-    font-size: 10px;
+    font-size: 1.5rem;
     }
 .ibm-plex-mono-medium {
     font-family: "IBM Plex Mono", serif;
@@ -92,18 +107,18 @@ a {
     padding-right: 12.5%;
     background-color: #000000d7;
     align-content: center;
-    margin: 1em 0 0 0em;
-    border: #830202 .15em solid;
-    border-radius: .25em;
+    margin: 1rem 0 0 0rem;
+    border: #830202 .15rem solid;
+    border-radius: .25rem;
     padding 1em;
 }
 .home-logo {
     font-family: "IBM Plex Mono", serif;
-    font-size: 1.81em;
+    font-size: 1.81rem;
     color: #81d003;
     text-align: center;
     font-weight: 600;
-    margin: 1em 0 0 0em;
+    margin: 1em 0 0 0rem;
 }
 .home-p {
     font-family: "IBM Plex Mono", serif;
@@ -111,7 +126,7 @@ a {
     color: #81d003;
     text-align: center;
     font-weight: 300;
-    margin: .25em .25em .25em .25em;
+    margin: .25rem .25rem .25rem .25rem;
 }
 #who {
     display: flexbox;
@@ -126,10 +141,10 @@ a {
     padding-right: 12.5%;
     background-color: #000000d7;
     align-content: center;
-    margin: 1em 0 0 0em;
-    border: #830202 .15em solid;
-    border-radius: .25em;
-    padding 1em:
+    margin: 1rem 0 0 0em;
+    border: #830202 .15rem solid;
+    border-radius: .25rem;
+    padding 1rem;
 }
 #what {
     display: flexbox;
@@ -144,16 +159,16 @@ a {
     padding-right: 12.5%;
     background-color: #000000d7;
     align-content: center;
-    margin: 1em 0 0 0em;
-    border: #830202 .15em solid;
-    border-radius: .25em;
-    padding 1em:
+    margin: 1rem 0 0 0em;
+    border: #830202 .15rem solid;
+    border-radius: .25rem;
+    padding 1rem;
 }
 #portfolio {
     display: flexbox;
     padding-left: 12.5%;
     padding-right: 12.5%;
-    padding-bottom: 5em;
+    padding-bottom: 1.5rem;
 }
 .portfolio {
     display: flexbox;
@@ -163,10 +178,10 @@ a {
     padding-right: 12.5%;
     background-color: #000000d7;
     align-content: center;
-    margin: 1em 0 0 0em;
-    border: #830202 .15em solid;
-    border-radius: .25em;
-    padding 1em:
+    margin: 1rem 0 0 0em;
+    border: #830202 .15rem solid;
+    border-radius: .25rem;
+    padding 1rem;
 }
 .body-title {
     font-family: "IBM Plex Mono", serif;
@@ -182,7 +197,7 @@ a {
     color: #81d003;
     text-align: center;
     font-weight: 300;
-    margin: .25em .25em .25em .25em;
+    margin: .25rem .25rem .25rem .25rem;
 }
 .thus {
     font-family: "IBM Plex Mono", serif;
@@ -190,24 +205,25 @@ a {
     color: #81d003;
     font-weight: 300;
     font-style: italic;
-    margin: .25em .25em .25em .25em;
+    margin: .2rem .25rem .25rem .25rem;
 }
 .footer {
     display: flex;
     flex-direction: column;
-    margin-top: auto
-    max-height: 10em;
+    position: fixed;
+    bottom: 0px;
+    height: 5rem;
     width: 100%;
-    padding-top: 5em;
-    margin: .5em;
+    padding-top: 5rem;
+    margin: .5rem;
 }
 .footer-text {
     font-family: "IBM Plex Mono", serif;
-    font-size: .6em;
+    font-size: .6rem;
     color: #81d003;
     text-align: center;
     font-weight: 300;
     padding-left: .5em;
-    margin: .25em .25em .25em .25em;
-    border-top: 0.15em solid #81d003;
+    margin: .25rem .25rem .25rem .25rem;
+    border-top: 0.15rem solid #81d003;
 }
