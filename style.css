@@ -6,12 +6,14 @@ nav {
     min-width: 50%;
     margin: 0 auto;
     max-height: 10em;
-    border-bottom: 2px solid #830202;
+    border-bottom: .15em solid #830202;
     background-color: #000000;
     padding: 0px;
     margin: 0px;
 }
 body {
+    display: flex;
+    flex-direction: column;
     max-width: 100%;
     background-color: #000000;
 }
@@ -60,10 +62,16 @@ a {
     font-style: normal;
   }
 .home {
+    display: flexbox;
+    flex-direction: column;
+    max-width: 75%;
     font-family: "IBM Plex Mono", serif;
     color: #81d003;
     align-content: center;
-    margin: 0em 0 0 0em;
+    margin: 1em 0 0 0em;
+    border: #830202 .15em solid;
+    border-radius: .25em;
+    padding 1em:
 }
 .home-logo {
     font-family: "IBM Plex Mono", serif;
@@ -79,23 +87,43 @@ a {
     color: #81d003;
     text-align: center;
     font-weight: 300;
-    margin: .25em 0 0 0em;
+    margin: .25em .25em .25em .25em;
 }
 .who {
-    font-family: "IBM Plex Mono", serif;
-    font-size: 10px;
-    color: #81d003;
-    text-align: center;
     margin-top: 50px;
+    border: #830202 .15em solid;
+    border-radius: .25em;
+    padding 1em:
 }
 .what {
-    font-family: "IBM Plex Mono", serif;
-    font-size: 10px;
-    color: #81d003;
-    text-align: center;
     margin-top: 50px;
+    border: #830202 .15em solid;
+    border-radius: .25em;
+    padding 1em:
 }
 .portfolio {
+    margin-top: 50px;
+    border: #830202 .15em solid;
+    border-radius: .25em;
+    padding 1em:
+}
+.body-title {
+    font-family: "IBM Plex Mono", serif;
+    font-size: 1.81em;
+    color: #81d003;
+    text-align: center;
+    font-weight: 600;
+    margin: 1em 0 0 0em;
+}
+.body-text {
+    font-family: "IBM Plex Mono", serif;
+    font-size: .8em;
+    color: #81d003;
+    text-align: center;
+    font-weight: 300;
+    margin: .25em .25em .25em .25em;
+}
+.footer {
     font-family: "IBM Plex Mono", serif;
     font-size: 10px;
     color: #81d003;
