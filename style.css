@@ -15,13 +15,60 @@ nav {
     position: fixed;
     top: 0;  
     width: 100%;
-    min-width: 50%;
+    min-width: 2em;
     margin: 0 auto;
     height: 5rem;
     border-bottom: .15rem solid #830202;
     background-color: #000000;
-    padding: 0px;
+    padding: .25rem;
     margin: 0px;
+}
+.logo {
+    align-content: center;
+    font-family: "IBM Plex Mono", serif;
+    font-size: 3rem;
+    padding: 0px;
+    overflow: hidden;
+    flex-shrink: 1;
+    background: linear-gradient(90deg, #000, #81d003, #000);
+    background-repeat: no-repeat;
+    background-size: 80%;
+    animation: animate 9s linear infinite;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0);
+}
+
+@keyframes animate {
+    0% {
+        background-position: -500%;
+    }
+    100% {
+        background-position: 500%;
+    }
+}
+.menu {
+    display: inline-flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-shrink: 1;
+    padding-right: 2rem;
+    font-size: 1rem;
+}
+li {
+    list-style-type: none;
+    text-align: center;
+}
+a {
+    font-family: "IBM Plex Mono", serif;
+    text-decoration: none;
+    color: #81d003;
+    font-size: 1.5rem;
+}
+.ibm-plex-mono-medium {
+    font-family: "IBM Plex Mono", serif;
+    font-weight: 500;
+    font-style: normal;
 }
 body {
     display: flex;
@@ -38,7 +85,7 @@ body {
     height: 100%;
     margin: auto;
     background-image: repeating-radial-gradient(circle at 57% 76%, #81d003, black 0.00018em);
-    animation: tv-static 7s linear infinite;
+    animation: tv-static 300s linear infinite;
   }
   
   @keyframes tv-static {
@@ -50,56 +97,12 @@ body {
       background-size: 200% 200%;
     }
   }
-.logo {
-align-content: center;
-font-family: "IBM Plex Mono", serif;
-font-size: 3rem;
-padding: 0px;
-overflow: hidden;
-background: linear-gradient(90deg, #000, #81d003, #000);
-background-repeat: no-repeat;
-background-size: 80%;
-animation: animate 3s linear infinite;
--webkit-background-clip: text;
--webkit-text-fill-color: rgba(255, 255, 255, 0);
-}
-
-@keyframes animate {
-0% {
-  background-position: -500%;
-}
-100% {
-  background-position: 500%;
-}
-}
-.menu {
-    display: inline-flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    padding-right: 2rem;
-    font-size: 1rem;
-}
-li {
-    list-style-type: none;
-    text-align: center;
-}
-a {
-    font-family: "IBM Plex Mono", serif;
-    text-decoration: none;
-    color: #81d003;
-    font-size: 1.5rem;
-    }
-.ibm-plex-mono-medium {
-    font-family: "IBM Plex Mono", serif;
-    font-weight: 500;
-    font-style: normal;
-  }
 #home {
     display: flexbox;
     padding-left: 12.5%;
     padding-right: 12.5%;
 }
- .home {
+.home {
     display: flexbox;
     flex-direction: column;
     max-width: 75%;
@@ -110,7 +113,6 @@ a {
     margin: 1rem 0 0 0rem;
     border: #830202 .15rem solid;
     border-radius: .25rem;
-    padding 1em;
 }
 .home-logo {
     font-family: "IBM Plex Mono", serif;
@@ -144,7 +146,6 @@ a {
     margin: 1rem 0 0 0em;
     border: #830202 .15rem solid;
     border-radius: .25rem;
-    padding 1rem;
 }
 #what {
     display: flexbox;
@@ -162,7 +163,6 @@ a {
     margin: 1rem 0 0 0em;
     border: #830202 .15rem solid;
     border-radius: .25rem;
-    padding 1rem;
 }
 #portfolio {
     display: flexbox;
@@ -181,19 +181,18 @@ a {
     margin: 1rem 0 0 0em;
     border: #830202 .15rem solid;
     border-radius: .25rem;
-    padding 1rem;
 }
 .body-title {
     font-family: "IBM Plex Mono", serif;
-    font-size: 1.81em;
+    font-size: 1.81rem;
     color: #81d003;
     text-align: center;
     font-weight: 600;
-    margin: 1em 0 0 0em;
+    margin: 1rem 0 0 0rem;
 }
 .body-text {
     font-family: "IBM Plex Mono", serif;
-    font-size: .8em;
+    font-size: .8rem;
     color: #81d003;
     text-align: center;
     font-weight: 300;
@@ -201,21 +200,21 @@ a {
 }
 .thus {
     font-family: "IBM Plex Mono", serif;
-    font-size: .6em;
+    font-size: .6rem;
     color: #81d003;
     font-weight: 300;
     font-style: italic;
     margin: .2rem .25rem .25rem .25rem;
 }
-.footer {
+footer {
     display: flex;
     flex-direction: column;
-    position: fixed;
-    bottom: 0px;
-    height: 5rem;
+    position: sticky bottom;
+    bottom: 0rem;
     width: 100%;
-    padding-top: 5rem;
-    margin: .5rem;
+    height: 1.25rem;
+    border-top: 0.15rem solid #830202;
+    background-color: #000000;
 }
 .footer-text {
     font-family: "IBM Plex Mono", serif;
@@ -223,7 +222,5 @@ a {
     color: #81d003;
     text-align: center;
     font-weight: 300;
-    padding-left: .5em;
-    margin: .25rem .25rem .25rem .25rem;
-    border-top: 0.15rem solid #81d003;
+    height: .9rem;
 }
