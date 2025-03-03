@@ -1,25 +1,20 @@
 nav {
     display: flex;
     align-items: baseline;
-    position: fixed;
     justify-content: space-between; 
+    position: fixed;
     top: 0;  
     width: 100%;
-    min-width: 2em;
     margin: 0 auto;
     height: 5rem;
     border-bottom: .15rem solid #830202;
     background-color: #000000;
-    padding: .25rem;
-    margin: 0px;
     z-index: 1000;
 }
 .logo {
     font-family: "IBM Plex Mono", serif;
     font-size: clamp(2rem, 3vw, 3rem);
-    padding: 0px;
-    overflow: hidden;
-    flex-shrink: 1;
+    padding-left: 2%;
     background: linear-gradient(90deg, #000, #81d003, #000);
     background-repeat: no-repeat;
     background-size: 80%;
@@ -95,7 +90,7 @@ body {
 .animation {
     width: 100%;
     min-height: 100vh;
-    margin: auto;
+    margin: 0;
     background-image: repeating-radial-gradient(circle at 57% 76%, #81d003, black 0.00018em);
     animation: tv-static 300s linear infinite;
   }
