@@ -10,6 +10,10 @@
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">  
     <nav>
             <a class="logo" href="#home">Darklimits</a>
+            <div class="color-picker-container">
+                <label for="hueSlider" class="color-picker-label">Hue:</label>
+                <input type="range" id="hueSlider" class="hue-slider" min="0" max="360" value="90">
+            </div>
             <ul>
                 <div class="nav-toggle"> 
                 <li><a class="menu" href="#who">Who</a></li>
@@ -52,6 +56,7 @@
         </div>
     </section>
 </div>
+<script src="script.js"></script>
 </body>
 <footer>
     <p class="footer-text">&copy; 2021 Darklimits</p>
