@@ -159,7 +159,7 @@ body {
 }
 .body-text {
     font-family: "IBM Plex Mono", serif;
-    font-size: .8rem;
+    font-size: clamp(1rem, 1.2vw, 1.5rem);
     color: var(--theme-color);
     text-align: center;
     font-weight: 300;
