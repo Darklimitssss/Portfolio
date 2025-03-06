@@ -1,13 +1,17 @@
-/**
+/***********************
  * Color Theme Manager
- * Handles the dynamic color theme changes for the website
- */
+ * Handles dynamic color theme changes for the website
+ ***********************/
 
-// Constants
+// Theme Constants
 const DEFAULT_HUE = 90;
 const MAX_SATURATION = 1.0;
 const MAX_VALUE = 0.9;
 const DARKEN_FACTOR = 0.7;
+
+/***********************
+ * Color Conversion Utilities
+ ***********************/
 
 /**
  * Converts HSV color values to RGB
@@ -66,6 +70,10 @@ function RGBToHex(r, g, b) {
     return '#' + [r, g, b].map(toHex).join('');
 }
 
+/***********************
+ * Color Manipulation
+ ***********************/
+
 /**
  * Creates a darker version of the provided color
  * @param {string} color - Hex color code
@@ -83,6 +91,10 @@ function darkenColor(color) {
     
     return RGBToHex(...darkerRGB);
 }
+
+/***********************
+ * Theme Management
+ ***********************/
 
 /**
  * Updates the theme colors based on the selected hue
@@ -117,5 +129,146 @@ function initializeColorTheme() {
     });
 }
 
-// Initialize when DOM is ready
-document.addEventListener('DOMContentLoaded', initializeColorTheme);
+/***********************
+ * Section Navigation
+ ***********************/
+
+/**
+ * Handles section transitions with glitch effect
+ * @param {string} sectionId - ID of the section to show
+ */
+function handleSectionTransition(sectionId) {
+    const sections = ['home', 'who', 'what', 'portfolio'];
+    const targetSection = document.getElementById(sectionId);
+    
+    // Hide all sections first
+    sections.forEach(id => {
+        const section = document.getElementById(id);
+        if (section && section !== targetSection) {
+            section.classList.remove('active');
+            const box = section.querySelector('.content-box');
+            if (box) {
+                box.classList.remove('active', 'glitch');
+            }
+        }
+    });
+
+    // Show target section with glitch effect
+    if (targetSection) {
+        targetSection.classList.add('active');
+        const box = targetSection.querySelector('.content-box');
+        if (box) {
+            box.classList.add('active', 'glitch');
+            // Remove glitch class after animation completes
+            setTimeout(() => {
+                box.classList.remove('glitch');
+            }, 300);
+        }
+    }
+}
+
+/**
+ * Initializes section navigation
+ */
+function initializeSectionNavigation() {
+    // Add click event listeners to navigation links
+    document.querySelectorAll('a.menu').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const sectionId = link.getAttribute('href').substring(1);
+            handleSectionTransition(sectionId);
+            // Update URL without page reload
+            history.pushState(null, '', `#${sectionId}`);
+        });
+    });
+
+    // Handle initial section based on URL hash
+    window.addEventListener('load', () => {
+        const hash = window.location.hash.substring(1) || 'home';
+        handleSectionTransition(hash);
+    });
+
+    // Handle browser back/forward buttons
+    window.addEventListener('popstate', () => {
+        const hash = window.location.hash.substring(1) || 'home';
+        handleSectionTransition(hash);
+    });
+}
+
+/***********************
+ * Mobile Menu
+ ***********************/
+
+/**
+ * Handles mobile menu functionality
+ * Controls the hamburger menu button and mobile navigation
+ */
+function initializeMobileMenu() {
+    const menuButton = document.querySelector('.nav-button');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    let isMenuOpen = false;
+
+    if (!menuButton || !mobileMenu) {
+        console.error('Mobile menu elements not found');
+        return;
+    }
+
+    // Toggle menu on button click
+    menuButton.addEventListener('click', () => {
+        isMenuOpen = !isMenuOpen;
+        mobileMenu.classList.toggle('active');
+        
+        // Update button icon for menu state
+        const paths = menuButton.querySelectorAll('path');
+        if (isMenuOpen) {
+            // Change to X icon
+            paths[1].setAttribute('d', 'M6 6l12 12');
+            paths[2].setAttribute('d', 'M6 18l12 -12');
+            paths[3].setAttribute('d', '');
+        } else {
+            // Change back to hamburger icon
+            paths[1].setAttribute('d', 'M4 6l16 0');
+            paths[2].setAttribute('d', 'M4 12l16 0');
+            paths[3].setAttribute('d', 'M4 18l16 0');
+        }
+    });
+
+    // Close menu when a link is clicked
+    mobileMenu.querySelectorAll('a.menu').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            isMenuOpen = false;
+            // Reset hamburger icon
+            const paths = menuButton.querySelectorAll('path');
+            paths[1].setAttribute('d', 'M4 6l16 0');
+            paths[2].setAttribute('d', 'M4 12l16 0');
+            paths[3].setAttribute('d', 'M4 18l16 0');
+        });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (isMenuOpen && 
+            !mobileMenu.contains(e.target) && 
+            !menuButton.contains(e.target)) {
+            mobileMenu.classList.remove('active');
+            isMenuOpen = false;
+            // Reset hamburger icon
+            const paths = menuButton.querySelectorAll('path');
+            paths[1].setAttribute('d', 'M4 6l16 0');
+            paths[2].setAttribute('d', 'M4 12l16 0');
+            paths[3].setAttribute('d', 'M4 18l16 0');
+        }
+    });
+}
+
+/***********************
+ * Initialization
+ ***********************/
+
+// Initialize all functionality when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+    initializeColorTheme();
+    initializeSectionNavigation();
+    initializeMobileMenu();
+});
