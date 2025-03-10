@@ -150,6 +150,8 @@ main {
 
 /* Overlay */
 .box-over-animation {
+    display: flex;
+    align-items: center;
     background-color: #0000008d;
     width: 100%;
     height: 90vh;
@@ -161,7 +163,6 @@ main {
  * Content Box Styles
  ***********************/
 .content-box {
-    flex-direction: column;
     max-width: 75%;
     height: 50rem;
     padding-left: 12.5%;
@@ -231,9 +232,9 @@ main {
     padding-left: 12.5%;
     padding-right: 12.5%;
     flex-shrink: calc(1);
-    margin-top: 3%;
     position: center;
     display: none;
+    width: 80%;
 }
 
 #home.active, #who.active, #what.active, #portfolio.active {
@@ -241,7 +242,6 @@ main {
 }
 
 .home, .who, .what, .portfolio {
-    display: flex;
     flex-direction: column;
 }
 
