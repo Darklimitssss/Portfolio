@@ -253,7 +253,7 @@ main {
     font-size: clamp(1.2rem, 3vw, 1.81rem);
     color: var(--theme-color);
     text-align: center;
-    font-weight: 600;
+    font-weight: 800;
     margin: 1em 0 0 0rem;
 }
 
@@ -275,6 +275,15 @@ main {
     font-weight: 300;
     margin: .25rem .25rem .25rem .25rem;
     padding-bottom: 1rem;
+}
+.headerA {
+    font-weight: 700;
+}
+.starElement {
+    font-weight: 400;
+}
+.headerB {
+    font-weight: 400;
 }
 
 /***********************
@@ -299,82 +308,6 @@ footer {
     text-align: center;
     font-weight: 300;
     height: .9rem;
-}
-
-/***********************
- * Mobile Menu Styles
- ***********************/
-.mobile-menu {
-    position: fixed;
-    top: 5rem;
-    right: -100%;
-    width: 100%;
-    height: calc(100vh - 5rem);
-    background-color: #000000f5;
-    transition: right 0.3s ease;
-    z-index: 999;
-    border-left: .15rem solid var(--theme-border-color);
-    display: none;
-}
-
-.mobile-menu.active {
-    right: 0;
-}
-
-.mobile-menu ul {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 2rem 0;
-    margin: 0;
-    height: 100%;
-}
-
-.mobile-menu li {
-    margin: 1rem 0;
-    width: 100%;
-    text-align: center;
-}
-
-.mobile-menu a.menu {
-    font-size: 1.5rem;
-    width: 100%;
-    padding: 1rem 0;
-    display: block;
-}
-
-.mobile-menu a.menu:hover {
-    background-color: #ffffff1a;
-}
-
-/***********************
- * Media Queries
- ***********************/
-@media (max-width: 40em) {
-    /* Navigation Changes */
-    .nav-toggle { display: none; }
-    .nav-button { display: flex; }
-    .logo { font-size: 2rem; }
-    
-    /* Typography Changes */
-    .home-logo { font-size: 1.5rem; }
-    .home-p { font-size: .6rem; }
-    .body-title { font-size: 1.5rem; }
-    .body-text { font-size: .6rem; }
-    .thus { font-size: .5rem; }
-    .footer-text { font-size: .5rem; }
-    
-    /* Layout Changes */
-    nav { height: 5rem; align-items: center; }
-    body { margin-top: 0rem; }
-    
-    /* Hide Color Picker */
-    .color-picker-container { display: none; }
-    .color-picker { display: none; }
-    
-    /* Show Mobile Menu */
-    .mobile-menu { display: block; }
 }
 
 .color-picker-container {
@@ -447,3 +380,80 @@ input[type="range"].hue-slider {
         border-radius: 2px;
         cursor: pointer;
     }
+
+/***********************
+ * Mobile Menu Styles
+ ***********************/
+ .mobile-menu {
+    position: fixed;
+    top: 5rem;
+    right: -100%;
+    width: 100%;
+    height: calc(100vh - 5rem);
+    background-color: #000000f5;
+    transition: right 0.3s ease;
+    z-index: 999;
+    border-left: .15rem solid var(--theme-border-color);
+    display: none;
+}
+
+.mobile-menu.active {
+    right: 0;
+}
+
+.mobile-menu ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 2rem 0;
+    margin: 0;
+    height: 100%;
+}
+
+.mobile-menu li {
+    margin: 1rem 0;
+    width: 100%;
+    text-align: center;
+}
+
+.mobile-menu a.menu {
+    font-size: 1.5rem;
+    width: 100%;
+    padding: 1rem 0;
+    display: block;
+}
+
+.mobile-menu a.menu:hover {
+    background-color: #ffffff1a;
+}
+
+    /***********************
+ * Media Queries
+ ***********************/
+@media (max-width: 40em) {
+    /* Navigation Changes */
+    .nav-toggle { display: none; }
+    .nav-button { display: flex; }
+    .color-picker-container { display: none; }
+    
+    /* Hide Color Picker */
+    .color-picker-label { display: none; }
+    .color-picker { display: none; }
+
+    /* Typography Changes */
+    .home-logo { font-size: 1.5rem; }
+    .home-p { font-size: .6rem; }
+    .body-title { font-size: 1.5rem; }
+    .body-text { font-size: .6rem; }
+    .thus { font-size: .5rem; }
+    .footer-text { font-size: .5rem; }
+    
+    /* Layout Changes */
+    nav { height: 5rem; align-items: center; }
+    body { margin-top: 0rem; }
+    
+    
+    /* Show Mobile Menu */
+    .mobile-menu { display: block; }
+}
