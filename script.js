@@ -21,36 +21,30 @@ const DARKEN_FACTOR = 0.7;
  * @returns {number[]} Array of [r, g, b] values (0-255)
  */
 function HSVToRGB(h, s, v) {
-    const c = v * s;
-    const x = c * (1 - Math.abs((h / 60) % 2 - 1));
-    const m = v - c;
+    if (h === 360) h = 0;
+    h = h / 360;  // Convert hue to 0-1 range
 
     let r, g, b;
-    
-    switch (true) {
-        case h >= 0 && h < 60:
-            [r, g, b] = [c, x, 0];
-            break;
-        case h >= 60 && h < 120:
-            [r, g, b] = [x, c, 0];
-            break;
-        case h >= 120 && h < 180:
-            [r, g, b] = [0, c, x];
-            break;
-        case h >= 180 && h < 240:
-            [r, g, b] = [0, x, c];
-            break;
-        case h >= 240 && h < 300:
-            [r, g, b] = [x, 0, c];
-            break;
-        default:
-            [r, g, b] = [c, 0, x];
+
+    const i = Math.floor(h * 6);
+    const f = h * 6 - i;
+    const p = v * (1 - s);
+    const q = v * (1 - f * s);
+    const t = v * (1 - (1 - f) * s);
+
+    switch (i % 6) {
+        case 0: [r, g, b] = [v, t, p]; break;
+        case 1: [r, g, b] = [q, v, p]; break;
+        case 2: [r, g, b] = [p, v, t]; break;
+        case 3: [r, g, b] = [p, q, v]; break;
+        case 4: [r, g, b] = [t, p, v]; break;
+        case 5: [r, g, b] = [v, p, q]; break;
     }
 
     return [
-        Math.round((r + m) * 255),
-        Math.round((g + m) * 255),
-        Math.round((b + m) * 255)
+        Math.round(r * 255),
+        Math.round(g * 255),
+        Math.round(b * 255)
     ];
 }
 
@@ -101,8 +95,8 @@ function darkenColor(color) {
  * @param {number} hue - Color hue value (0-360)
  */
 function updateThemeColors(hue) {
-    // Only apply white when hue is near 0 (left end)
-    const isWhite = hue <= 5;
+    // Check if slider is in the white area (first 5% of the range)
+    const isWhite = hue <= 18; // 5% of 360 is 18
     
     const rgb = HSVToRGB(hue, isWhite ? 0 : MAX_SATURATION, MAX_VALUE);
     const mainColor = RGBToHex(...rgb);
