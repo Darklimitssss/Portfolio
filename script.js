@@ -101,7 +101,10 @@ function darkenColor(color) {
  * @param {number} hue - Color hue value (0-360)
  */
 function updateThemeColors(hue) {
-    const rgb = HSVToRGB(hue, MAX_SATURATION, MAX_VALUE);
+    // Only apply white when hue is near 0 (left end)
+    const isWhite = hue <= 5;
+    
+    const rgb = HSVToRGB(hue, isWhite ? 0 : MAX_SATURATION, MAX_VALUE);
     const mainColor = RGBToHex(...rgb);
     const borderColor = darkenColor(mainColor);
     
@@ -113,19 +116,27 @@ function updateThemeColors(hue) {
  * Initializes the color theme functionality
  */
 function initializeColorTheme() {
-    const hueSlider = document.getElementById('hueSlider');
-    if (!hueSlider) {
-        console.error('Hue slider element not found');
+    const hueSliders = document.querySelectorAll('.hue-slider');
+    if (!hueSliders.length) {
+        console.error('Hue slider elements not found');
         return;
     }
 
     // Set initial color
     updateThemeColors(DEFAULT_HUE);
 
-    // Add event listener for color changes
-    hueSlider.addEventListener('input', (e) => {
-        const hue = parseInt(e.target.value);
-        updateThemeColors(hue);
+    // Add event listener for color changes to all sliders
+    hueSliders.forEach(slider => {
+        slider.addEventListener('input', (e) => {
+            const hue = parseInt(e.target.value);
+            updateThemeColors(hue);
+            // Keep all sliders in sync
+            hueSliders.forEach(s => {
+                if (s !== e.target) {
+                    s.value = hue;
+                }
+            });
+        });
     });
 }
 
