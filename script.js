@@ -21,30 +21,36 @@ const DARKEN_FACTOR = 0.7;
  * @returns {number[]} Array of [r, g, b] values (0-255)
  */
 function HSVToRGB(h, s, v) {
-    if (h === 360) h = 0;
-    h = h / 360;  // Convert hue to 0-1 range
+    const c = v * s;
+    const x = c * (1 - Math.abs((h / 60) % 2 - 1));
+    const m = v - c;
 
     let r, g, b;
-
-    const i = Math.floor(h * 6);
-    const f = h * 6 - i;
-    const p = v * (1 - s);
-    const q = v * (1 - f * s);
-    const t = v * (1 - (1 - f) * s);
-
-    switch (i % 6) {
-        case 0: [r, g, b] = [v, t, p]; break;
-        case 1: [r, g, b] = [q, v, p]; break;
-        case 2: [r, g, b] = [p, v, t]; break;
-        case 3: [r, g, b] = [p, q, v]; break;
-        case 4: [r, g, b] = [t, p, v]; break;
-        case 5: [r, g, b] = [v, p, q]; break;
+    
+    switch (true) {
+        case h >= 0 && h < 60:
+            [r, g, b] = [c, x, 0];
+            break;
+        case h >= 60 && h < 120:
+            [r, g, b] = [x, c, 0];
+            break;
+        case h >= 120 && h < 180:
+            [r, g, b] = [0, c, x];
+            break;
+        case h >= 180 && h < 240:
+            [r, g, b] = [0, x, c];
+            break;
+        case h >= 240 && h < 300:
+            [r, g, b] = [x, 0, c];
+            break;
+        default:
+            [r, g, b] = [c, 0, x];
     }
 
     return [
-        Math.round(r * 255),
-        Math.round(g * 255),
-        Math.round(b * 255)
+        Math.round((r + m) * 255),
+        Math.round((g + m) * 255),
+        Math.round((b + m) * 255)
     ];
 }
 
@@ -95,10 +101,7 @@ function darkenColor(color) {
  * @param {number} hue - Color hue value (0-360)
  */
 function updateThemeColors(hue) {
-    // Check if slider is in the white area (first 5% of the range)
-    const isWhite = hue <= 18; // 5% of 360 is 18
-    
-    const rgb = HSVToRGB(hue, isWhite ? 0 : MAX_SATURATION, MAX_VALUE);
+    const rgb = HSVToRGB(hue, MAX_SATURATION, MAX_VALUE);
     const mainColor = RGBToHex(...rgb);
     const borderColor = darkenColor(mainColor);
     
@@ -164,7 +167,21 @@ function handleSectionTransition(sectionId) {
         const box = targetSection.querySelector('.content-box');
         if (box) {
             box.classList.add('active', 'glitch');
-            // Remove glitch class after animation completes
+            
+            // Apply glitch effect to all text elements
+            const textElements = box.querySelectorAll('.body-title, .body-text, .thus, strong, span');
+            textElements.forEach((el, index) => {
+                // Add glitch class with staggered delay
+                setTimeout(() => {
+                    el.classList.add('text-glitch');
+                    // Remove glitch class after animation
+                    setTimeout(() => {
+                        el.classList.remove('text-glitch');
+                    }, 300);
+                }, index * 50);
+            });
+
+            // Remove box glitch after animation
             setTimeout(() => {
                 box.classList.remove('glitch');
             }, 300);

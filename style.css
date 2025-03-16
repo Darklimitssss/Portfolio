@@ -44,24 +44,7 @@ nav {
 }
 
 /* Animated Logo in Home Container */
-.home-logo {
-    font-family: "IBM Plex Mono", serif;
-    font-size: clamp(4rem, 13vw, 80rem);
-    background: linear-gradient(90deg, #000, var(--theme-color), #000);
-    background-repeat: no-repeat;
-    background-size: 80%;
-    animation: animate 9s linear infinite;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: rgba(255, 255, 255, 0);
-    text-align: center;
-    text-decoration: none;
-}
 
-@keyframes animate {
-    0% { background-position: -500%; }
-    100% { background-position: 500%; }
-}
 
 /* Navigation Menu Items */
 ul {
@@ -94,129 +77,179 @@ ul {
     }
 }
 
- /***********************
-  * Layout Structure
- ***********************/
- body {
-     display: flex;
-     flex-direction: column;
-     justify-content: space-between;
-     height: 100vh;
-     margin: 0;
-     padding: 0; 
+/***********************
+* Layout Structure
+***********************/
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    margin: 0;
+    padding: 0; 
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100lvh;
+    flex: 1;
+    background-color: #171717;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%; 
+    height: 3rem;
+    background-color: #000000;
+    border-top: 0.15rem solid var(--theme-border-color);
+    z-index: 1000;
+}
+
+/***********************
+* Content Box Styles
+***********************/
+.content-box {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    width: 80vw;
+    height: 70vh;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    background-color: #000000d3;
+    align-items: center;
+    border: .25rem solid var(--theme-border-color);
+    border-radius: .25rem;
+    box-shadow: 0 0 .25rem .125rem rgb(255, 255, 255);
+    position: relative;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Content Box States */
+.content-box.active {
+    opacity: 1;
+}
+
+/***********************
+* Glitch Effects
+***********************/
+.content-box.glitch {
+    animation: glitch 0.3s cubic-bezier(.25, .46, .45, .94) both;
+}
+
+.content-box.glitch::before,
+.content-box.glitch::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: inherit;
+    border: .15rem solid var(--theme-border-color);
+    border-radius: .25rem;
+}
+
+.content-box.glitch::before {
+    animation: noise-anim 0.3s infinite linear alternate-reverse;
+    clip-path: inset(44% 0 56% 0);
+    opacity: 0.75;
+}
+
+.content-box.glitch::after {
+    animation: noise-anim-2 0.3s infinite linear alternate-reverse;
+    clip-path: inset(67% 0 43% 0);
+    opacity: 0.75;
+}
+
+/***********************
+* Section Styles
+***********************/
+#home, #who, #what, #portfolio {
+    display: none;
+}
+
+#home.active, #who.active, #what.active, #portfolio.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.home, .who, .what, .portfolio {
+    flex-direction: column;
+}
+
+/***********************
+* Glitch Effects
+***********************/
+@keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+}
+
+.text-glitch {
+    animation: text-glitch 0.3s cubic-bezier(.25, .46, .45, .94) both;
+}
+
+@keyframes text-glitch {
+    0% { 
+        transform: translate(0);
+        text-shadow: none;
     }
-    
-    .main {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-        height: 100lvh;
-        flex: 1;
-        background-color: #171717;
+    20% { 
+        transform: translate(-2px, 2px);
+        text-shadow: -2px 0 var(--theme-color), 2px 2px var(--theme-color);
     }
-    
-    footer {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 100%; 
-        height: 3rem;
-        background-color: #000000;
-        border-top: 0.15rem solid var(--theme-border-color);
-        z-index: 1000;
+    40% { 
+        transform: translate(-2px, -2px);
+        text-shadow: 2px 0 var(--theme-color), -2px -2px var(--theme-color);
     }
-    
-    /***********************
-    * Content Box Styles
-    ***********************/
-    .content-box {
-        display: flex;
-        align-content: center;
-        justify-content: center;
-        width: 80vw;
-        height: 70vh;
-        padding-left: 2rem;
-        padding-right: 2rem;
-        background-color: #000000d3;
-        align-items: center;
-        border: .25rem solid var(--theme-border-color);
-        border-radius: .25rem;
-        box-shadow: 0 0 .25rem .125rem rgb(255, 255, 255);
-        position: relative;
-        opacity: 0;
-        transition: opacity 0.3s ease;
+    60% { 
+        transform: translate(2px, 2px);
+        text-shadow: 2px -2px var(--theme-color), -2px 2px var(--theme-color);
     }
-    
-    /* Content Box States */
-    .content-box.active {
-        opacity: 1;
+    80% { 
+        transform: translate(2px, -2px);
+        text-shadow: -2px -2px var(--theme-color), 2px 0 var(--theme-color);
     }
-    
-    /***********************
-    * Glitch Effects
-    ***********************/
-    .content-box.glitch {
-        animation: glitch 0.3s cubic-bezier(.25, .46, .45, .94) both;
+    100% { 
+        transform: translate(0);
+        text-shadow: none;
     }
-    
-    .content-box.glitch::before,
-    .content-box.glitch::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: inherit;
-        border: .15rem solid var(--theme-border-color);
-        border-radius: .25rem;
-    }
-    
-    .content-box.glitch::before {
-        animation: noise-anim 0.3s infinite linear alternate-reverse;
-        clip-path: inset(44% 0 56% 0);
-        opacity: 0.75;
-    }
-    
-    .content-box.glitch::after {
-        animation: noise-anim-2 0.3s infinite linear alternate-reverse;
-        clip-path: inset(67% 0 43% 0);
-        opacity: 0.75;
-    }
-    
-    /* Glitch Animations */
-    @keyframes glitch {
-        0% { transform: translate(0); }
-        20% { transform: translate(-2px, 2px); }
-        40% { transform: translate(-2px, -2px); }
-        60% { transform: translate(2px, 2px); }
-        80% { transform: translate(2px, -2px); }
-        100% { transform: translate(0); }
-    }
-    
-    /***********************
-    * Section Styles
-    ***********************/
-    #home, #who, #what, #portfolio {
-        display: none;
-    }
-    
-    #home.active, #who.active, #what.active, #portfolio.active {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .home, .who, .what, .portfolio {
-        flex-direction: column;
-    }
-    
+}
+
 /***********************
 * Typography
 ***********************/
+.home-logo {
+    font-family: "IBM Plex Mono", serif;
+    font-size: clamp(3rem, 11.5vw, 80rem);
+    background: linear-gradient(90deg, #000, var(--theme-color), #000);
+    background-repeat: no-repeat;
+    background-size: 80%;
+    animation: animate 9s linear infinite;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0);
+    text-align: center;
+    text-decoration: none;
+}
+@keyframes animate {
+    0% { background-position: -400%; }
+    100% { background-position: 400%; }
+}
 li {
     display: flex;
     padding: .5rem;
@@ -227,7 +260,7 @@ li {
     border: 0.05rem solid var(--theme-border-color);
     background-color: #ffffff1a;
     border-radius: .75rem;
-    }
+}
 
 a.menu {
     align-items: flex-start;
@@ -248,7 +281,7 @@ a.menu {
 
 .home-text {
     font-family: "IBM Plex Mono", serif;
-    font-size: clamp(.5rem, 1vw, 1rem);
+    font-size: clamp(.9rem, 2vw, 3rem);
     color: var(--theme-color);
     text-align: center;
     font-weight: 300;
@@ -258,7 +291,7 @@ a.menu {
 
 .body-text {
     font-family: "IBM Plex Mono", serif;
-    font-size: clamp(.4rem, 2vw, .9rem);
+    font-size: clamp(.4rem, 1.75vw, .9rem);
     color: var(--theme-color);
     text-align: center;
     font-weight: 300;
@@ -339,20 +372,18 @@ input[type="range"].hue-slider {
     height: 2rem;
     background: linear-gradient(
         to right,
-        #ffffff 0%,
-        #ffffff 5%,
-        #ff0000 5%,    /* Red at 0° */
-        #ffff00 20%,   /* Yellow at 60° */
-        #00ff00 35%,   /* Green at 120° */
-        #00ffff 50%,   /* Cyan at 180° */
-        #0000ff 65%,   /* Blue at 240° */
-        #ff00ff 80%,   /* Magenta at 300° */
-        #ff0000 100%   /* Back to Red at 360° */
-    );
-    border: 2px solid var(--theme-color);
-    border-radius: 4px;
-    cursor: pointer;
-}
+        #ff0000 0%,
+        #ffff00 17%,
+        #00ff00 33%,
+        #00ffff 50%,
+        #0000ff 67%,
+        #ff00ff 83%,
+        #ff0000 100%
+        );
+        border: 2px solid var(--theme-color);
+        border-radius: 4px;
+        cursor: pointer;
+    }
     
     input[type="range"].hue-slider::-webkit-slider-thumb {
         -webkit-appearance: none;
@@ -466,10 +497,10 @@ input[type="range"].hue-slider {
     }
 
     /* Typography Changes */
-    .home-logo { font-size: clamp(.3rem, 13vw, 80rem); }
-    .home-text { font-size: clamp(.3rem, 6vw, .8rem); }
+    .home-logo { font-size: clamp(.3rem, 11.5vw, 80rem); }
+    .home-text { font-size: clamp(.5rem, 2vw, 1.5rem); }
     .body-title { font-size: clamp(1.2rem, 5vw, 2rem); }
-    .body-text { font-size: clamp(.5rem, 2vw, 1rem); }
+    .body-text { font-size: clamp(.5rem, 1/75vw, 1rem); }
     .thus { font-size: .7rem; }
     .footer-text { font-size: .6rem; }
     .logo { font-size: 1.5rem; }
