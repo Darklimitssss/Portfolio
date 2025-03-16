@@ -372,18 +372,20 @@ input[type="range"].hue-slider {
     height: 2rem;
     background: linear-gradient(
         to right,
-        #ff0000 0%,
-        #ffff00 17%,
-        #00ff00 33%,
-        #00ffff 50%,
-        #0000ff 67%,
-        #ff00ff 83%,
-        #ff0000 100%
-        );
-        border: 2px solid var(--theme-color);
-        border-radius: 4px;
-        cursor: pointer;
-    }
+        #ffffff 0%,
+        #ffffff 5%,
+        #ff0000 5%,    /* Red at 0° */
+        #ffff00 20%,   /* Yellow at 60° */
+        #00ff00 35%,   /* Green at 120° */
+        #00ffff 50%,   /* Cyan at 180° */
+        #0000ff 65%,   /* Blue at 240° */
+        #ff00ff 80%,   /* Magenta at 300° */
+        #ff0000 100%   /* Back to Red at 360° */
+    );
+    border: 2px solid var(--theme-color);
+    border-radius: 4px;
+    cursor: pointer;
+}
     
     input[type="range"].hue-slider::-webkit-slider-thumb {
         -webkit-appearance: none;

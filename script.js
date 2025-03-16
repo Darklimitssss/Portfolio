@@ -101,7 +101,10 @@ function darkenColor(color) {
  * @param {number} hue - Color hue value (0-360)
  */
 function updateThemeColors(hue) {
-    const rgb = HSVToRGB(hue, MAX_SATURATION, MAX_VALUE);
+    // Check if slider is in the white area (first 5% of the range)
+    const isWhite = hue <= 18; // 5% of 360 is 18
+    
+    const rgb = HSVToRGB(hue, isWhite ? 0 : MAX_SATURATION, MAX_VALUE);
     const mainColor = RGBToHex(...rgb);
     const borderColor = darkenColor(mainColor);
     
