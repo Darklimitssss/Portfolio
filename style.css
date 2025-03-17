@@ -277,11 +277,12 @@ a.menu {
     text-align: center;
     font-weight: 800;
     margin: 0;
+    padding-top: .25rem;
 }
 
 .home-text {
     font-family: "IBM Plex Mono", serif;
-    font-size: clamp(.9rem, 2vw, 3rem);
+    font-size: clamp(.9rem, 2vw, 2.5rem);
     color: var(--theme-color);
     text-align: center;
     font-weight: 300;
@@ -291,12 +292,13 @@ a.menu {
 
 .body-text {
     font-family: "IBM Plex Mono", serif;
-    font-size: clamp(.4rem, 1.75vw, .9rem);
+    font-size: clamp(.4rem, 1.6vw, .8rem);
     color: var(--theme-color);
     text-align: center;
     font-weight: 300;
     margin: .25rem .25rem .25rem .25rem;
-    padding-bottom: 2rem;
+    padding-bottom: 1rem;
+    padding-top: .25rem;
 }
 .headerA {
     font-weight: 700;
