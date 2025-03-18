@@ -111,6 +111,9 @@ footer {
     border-top: 0.15rem solid var(--theme-border-color);
     z-index: 1000;
 }
+.projects {
+    margin-top: 2%;
+}
 
 /***********************
 * Content Box Styles
@@ -300,6 +303,28 @@ a.menu {
     padding-bottom: 1rem;
     padding-top: .25rem;
 }
+.tableProjects {
+    font-family: "IBM Plex Mono", serif;
+    font-size: clamp(.4rem, 1.6vw, .8rem);
+    color: var(--theme-color);
+    text-align: left;
+    font-weight: 300;
+    margin: .25rem .25rem .25rem .25rem;
+    padding-bottom: 1rem;
+    padding-top: .25rem;
+    width: 80dvw;
+    border-spacing: .7rem;
+}
+
+.projectHead {
+    width: 15%;
+}
+
+.whatHead {
+    width: 60%;
+}
+
+
 .headerA {
     font-weight: 700;
 }
@@ -329,6 +354,7 @@ a.menu {
     text-align: center;
     font-weight: 300;
     margin: 0;
+    font-style: italic;
 }
 
 .color-picker-label {

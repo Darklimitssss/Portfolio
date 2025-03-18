@@ -172,7 +172,7 @@ function handleSectionTransition(sectionId) {
             box.classList.add('active', 'glitch');
             
             // Apply glitch effect to all text elements
-            const textElements = box.querySelectorAll('.body-title, .body-text, .thus, strong, span');
+            const textElements = box.querySelectorAll('.body-title, .body-text, .thus, strong, span, .tableProjects');
             textElements.forEach((el, index) => {
                 // Add glitch class with staggered delay
                 setTimeout(() => {
