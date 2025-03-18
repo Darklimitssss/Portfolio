@@ -303,7 +303,7 @@ a.menu {
     text-align: center;
     font-weight: 300;
     margin: .25rem .25rem .25rem .25rem;
-    padding-bottom: 1rem;
+    padding-bottom: 2rem;
     padding-top: .25rem;
 }
 .tableProjects {
@@ -315,7 +315,7 @@ a.menu {
     margin: .25rem .25rem .25rem .25rem;
     padding-bottom: 1rem;
     padding-top: .25rem;
-    width: 80dvw;
+    width: 65dvw;
     border-spacing: .7rem;
 }
 
