@@ -122,10 +122,12 @@ footer {
     display: flex;
     align-content: center;
     justify-content: center;
-    width: 80vw;
-    height: 70vh;
+    width: 80dvw;
+    height: 70dvh;
     padding-left: 2rem;
     padding-right: 2rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
     background-color: #000000d3;
     align-items: center;
     border: .25rem solid var(--theme-border-color);
@@ -139,6 +141,10 @@ footer {
 /* Content Box States */
 .content-box.active {
     opacity: 1;
+    margin: 0;
+    margin-left: 2%;
+    margin-right: 2%;
+    width: 70dvw;
 }
 
 /***********************
