@@ -66,8 +66,7 @@ ul {
 .nav-button {
     display: none;
     align-items: flex-end;
-    padding-right: 0.5rem;
-    text-align: baseline;
+    padding-right: 4%;
     border: unset;
     background-color: unset;
     cursor: pointer;
@@ -122,12 +121,10 @@ footer {
     display: flex;
     align-content: center;
     justify-content: center;
-    width: 80dvw;
+    width: 70dvw;
     height: 70dvh;
     padding-left: 2rem;
     padding-right: 2rem;
-    margin-left: 2rem;
-    margin-right: 2rem;
     background-color: #000000d3;
     align-items: center;
     border: .25rem solid var(--theme-border-color);
@@ -539,7 +536,7 @@ input[type="range"].hue-slider {
     .body-text { font-size: clamp(.5rem, 1/75vw, 1rem); }
     .thus { font-size: .7rem; }
     .footer-text { font-size: .6rem; }
-    .logo { font-size: 1.5rem; }
+    .logo { font-size: clamp(1rem, 3vw, 3rem); }
     
     /* Layout Changes */
     nav { height: 5rem; align-items: center; }
